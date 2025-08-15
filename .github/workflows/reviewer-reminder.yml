@@ -91,14 +91,7 @@ jobs:
               const prUrl = pr.html_url;
               const prTitle = pr.title;
               const mentions = pendingUsers.map(u => `@${u}`).join(' ');
-              const body = `${marker}
-Hi ${mentions},
-
-This is a friendly weekly reminder that you have a pending review request on:
-- ${prTitle} (${prUrl})
-
-Please take a look when you get a moment. Thank you!`;
-
+                const body = `${marker}\nHi ${mentions},\n\nThis is a friendly weekly reminder that you have a pending review request on:\n- ${prTitle} (${prUrl})\n\nPlease take a look when you get a moment. Thank you!`;
               await github.rest.issues.createComment({
                 owner, repo, issue_number: number, body
               });
